@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { questions } from './data/questions'
 import type { Attempt } from './types'
+import ReactionScheme from './ReactionScheme'
 
 type Screen = 'welcome' | 'practice' | 'results'
 
@@ -57,6 +58,7 @@ export default function App() {
   return <main className="page"><section className="card practice-card">
     <header className="practice-header"><div><p className="eyebrow">Question {current + 1} of {questions.length}</p><div className="progress" aria-label={`${current + 1} of ${questions.length} questions`}><span style={{ width: `${((current + 1) / questions.length) * 100}%` }} /></div></div><span className={`tag ${topicColor[question.topic]}`}>{question.topic}</span></header>
     <h1 className="question">{question.prompt}</h1>
+    {question.reactionScheme && <ReactionScheme scheme={question.reactionScheme} />}
     <div className="choices" role="radiogroup" aria-label="Answer choices">{question.choices.map((choice, index) => {
       const state = answered ? (index === question.correctIndex ? 'correct' : index === selected ? 'incorrect' : '') : ''
       return <button className={`choice ${state}`} role="radio" aria-checked={selected === index} disabled={answered} onClick={() => choose(index)} key={choice}><span className="letter">{String.fromCharCode(65 + index)}</span><span>{choice}</span>{answered && index === question.correctIndex && <span className="answer-mark">✓</span>}{answered && index === selected && index !== question.correctIndex && <span className="answer-mark">×</span>}</button>

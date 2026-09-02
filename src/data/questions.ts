@@ -8,28 +8,32 @@ export const questions: Question[] = [
     prompt: 'Which substrate is expected to react fastest by an SN2 mechanism with iodide (I⁻) in acetone?',
     choices: ['tert-Butyl bromide', '2-Bromobutane', 'Bromoethane', 'Bromobenzene'],
     correctIndex: 2,
-    explanation: 'SN2 reactions require backside attack and are fastest at unhindered primary carbons. Bromoethane is primary; secondary and especially tertiary halides are sterically hindered, and aryl halides do not undergo ordinary SN2 substitution.'
+    explanation: 'SN2 reactions require backside attack and are fastest at unhindered primary carbons. Bromoethane is primary; secondary and especially tertiary halides are sterically hindered, and aryl halides do not undergo ordinary SN2 substitution.',
+    reactionScheme: { kind: 'bromoethane-iodide', conditions: 'acetone' }
   },
   {
     id: 2, topic: 'SN1',
     prompt: 'What is the rate law for solvolysis of tert-butyl chloride in water by an SN1 pathway?',
     choices: ['Rate = k[tert-butyl chloride][H₂O]', 'Rate = k[tert-butyl chloride]', 'Rate = k[H₂O]', 'Rate = k[tert-butyl chloride]²'],
     correctIndex: 1,
-    explanation: 'The slow, rate-determining step of SN1 is ionization of the alkyl halide to a carbocation. Water attacks only after that step, so its concentration does not appear in the rate law.'
+    explanation: 'The slow, rate-determining step of SN1 is ionization of the alkyl halide to a carbocation. Water attacks only after that step, so its concentration does not appear in the rate law.',
+    reactionScheme: { kind: 'tertbutyl-water', conditions: 'room temperature' }
   },
   {
     id: 3, topic: 'E2',
     prompt: 'Which reagent most strongly favors E2 elimination over substitution with 2-bromobutane?',
     choices: ['Sodium ethoxide (NaOEt)', 'Potassium tert-butoxide (KOtBu)', 'Water', 'Methanol'],
     correctIndex: 1,
-    explanation: 'tert-Butoxide is a strong, bulky base. It can remove a β-hydrogen efficiently but is hindered from nucleophilic attack, so it strongly favors E2 over SN2 with a secondary halide.'
+    explanation: 'tert-Butoxide is a strong, bulky base. It can remove a β-hydrogen efficiently but is hindered from nucleophilic attack, so it strongly favors E2 over SN2 with a secondary halide.',
+    reactionScheme: { kind: 'secbutyl-bulky-base', conditions: 'heat' }
   },
   {
     id: 4, topic: 'E1',
     prompt: 'Under heated aqueous ethanol conditions, which substrate is most likely to undergo E1 elimination?',
     choices: ['1-Bromopropane', '2-Bromopropane', 'tert-Butyl bromide', 'Vinyl bromide'],
     correctIndex: 2,
-    explanation: 'E1 proceeds through a carbocation, so a tertiary substrate is best able to ionize. Heat also favors elimination. Primary carbocations are too unstable, while vinyl bromide does not form an ordinary carbocation under these conditions.'
+    explanation: 'E1 proceeds through a carbocation, so a tertiary substrate is best able to ionize. Heat also favors elimination. Primary carbocations are too unstable, while vinyl bromide does not form an ordinary carbocation under these conditions.',
+    reactionScheme: { kind: 'tertbutyl-heat', conditions: 'EtOH, Δ' }
   },
   {
     id: 5, topic: 'SN2',
@@ -71,6 +75,7 @@ export const questions: Question[] = [
     prompt: 'When 2-bromobutane reacts with sodium ethoxide in ethanol under heating, the major mechanism is most likely:',
     choices: ['SN1', 'SN2', 'E1', 'E2'],
     correctIndex: 3,
-    explanation: 'A secondary alkyl halide with a strong base under heat commonly reacts by E2. The strong base can remove a β-hydrogen as the bromide leaves in one concerted step.'
+    explanation: 'A secondary alkyl halide with a strong base under heat commonly reacts by E2. The strong base can remove a β-hydrogen as the bromide leaves in one concerted step.',
+    reactionScheme: { kind: 'secbutyl-ethoxide', conditions: 'EtOH, Δ' }
   }
 ]
